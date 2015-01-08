@@ -25,21 +25,23 @@ endif()
 
 if(NOT DEFINED ITK_DIR AND NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
 
-  set(revision_tag "v3.20.1")
-  if(${proj}_REVISION_TAG)
-    set(revision_tag ${${proj}_REVISION_TAG})
-  endif()
+  set(revision_tag "44ed2f117f1e1148e7b9502c74ecddc9149b4917")
+  #if(${proj}_REVISION_TAG)
+  #  set(revision_tag ${${proj}_REVISION_TAG})
+  #endif()
 
   set(location_args )
-  if(${proj}_URL)
-    set(location_args URL ${${proj}_URL})
-  elseif(${proj}_GIT_REPOSITORY)
-    set(location_args GIT_REPOSITORY ${${proj}_GIT_REPOSITORY}
+  #if(${proj}_URL)
+  #  set(location_args URL ${${proj}_URL})
+  #elseif(${proj}_GIT_REPOSITORY)
+  #  set(location_args GIT_REPOSITORY ${${proj}_GIT_REPOSITORY}
+  #                    GIT_TAG ${revision_tag})
+  #else()
+  
+    set(location_args GIT_REPOSITORY "${git_protocol}://github.com/hendradarwin/ITK.git"
                       GIT_TAG ${revision_tag})
-  else()
-    set(location_args GIT_REPOSITORY "${git_protocol}://itk.org/ITK.git"
-                      GIT_TAG ${revision_tag})
-  endif()
+  #endif()
+
 
   set(ep_project_include_arg)
   if(CTEST_USE_LAUNCHERS)
