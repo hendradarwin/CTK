@@ -41,7 +41,7 @@ struct CTK_CORE_EXPORT ctkHistogramBar : public ctkControlPoint
 
 //-----------------------------------------------------------------------------
 /// \ingroup Core
-class CTK_CORE_EXPORT ctkHistogram: public ctkTransferFunction
+class Q_DECL_EXPORT ctkHistogram: public ctkTransferFunction
 {
   Q_OBJECT
 public:
