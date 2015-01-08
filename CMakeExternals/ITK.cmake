@@ -25,7 +25,7 @@ endif()
 
 if(NOT DEFINED ITK_DIR AND NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
 
-  set(revision_tag "44ed2f117f1e1148e7b9502c74ecddc9149b4917")
+  set(revision_tag "12f11d1f408680d24b6380856dd28dbe43582285")
   #if(${proj}_REVISION_TAG)
   #  set(revision_tag ${${proj}_REVISION_TAG})
   #endif()
