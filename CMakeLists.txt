@@ -740,10 +740,10 @@ ctk_enable_option(PluginFramework "Enable Plugin Framework" OFF
 ctk_enable_option(Python_Wrapping "Wrap CTK classes using Qt meta-object system into Python language" OFF
                   CTK_LIB_Scripting/Python/Core)
 mark_as_superbuild(CTK_ENABLE_Python_Wrapping)
-if(CTK_QT_VERSION VERSION_GREATER "4" AND CTK_ENABLE_Python_Wrapping)
-  message(WARNING "Disabling CTK_ENABLE_Python_Wrapping because Qt5 support is still missing")
-  set(CTK_ENABLE_Python_Wrapping OFF CACHE BOOL "Wrap CTK classes using Qt meta-object system into Python language" FORCE)
-endif()
+#if(CTK_QT_VERSION VERSION_GREATER "4" AND CTK_ENABLE_Python_Wrapping)
+#  message(WARNING "Disabling CTK_ENABLE_Python_Wrapping because Qt5 support is still missing")
+#  set(CTK_ENABLE_Python_Wrapping OFF CACHE BOOL "Wrap CTK classes using Qt meta-object system into Python language" FORCE)
+#endif()
 
 # Build examples
 # Create the logical expression containing the minium set of required options
