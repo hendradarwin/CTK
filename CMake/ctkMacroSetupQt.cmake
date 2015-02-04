@@ -22,6 +22,13 @@
 macro(ctkMacroSetupQt)
   set(CTK_QT_VERSION "4" CACHE STRING "Expected Qt version")
   mark_as_advanced(CTK_QT_VERSION)
+  
+  
+  
+  message(STATUS "current CTK_QT_VERSION is ${CTK_QT_VERSION}")
+  message(STATUS "current CMAKE_PREFIX_PATH is ${CMAKE_PREFIX_PATH}")
+  
+  
 
   set_property(CACHE CTK_QT_VERSION PROPERTY STRINGS 4 5)
 

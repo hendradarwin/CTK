@@ -20,6 +20,14 @@
 
 cmake_minimum_required(VERSION 2.8.9)
 
+foreach(p
+  CMP0054 # CMake 3.1
+  )
+  if(POLICY ${p})
+    cmake_policy(SET ${p} NEW)
+  endif()
+endforeach()
+
 #-----------------------------------------------------------------------------
 # Superbuild
 #
@@ -49,7 +57,13 @@ project(CTK)
 #
 set(CTK_LIBRARY_MODE "SHARED")
 
+
+
 add_definitions(/D_ALLOW_KEYWORD_MACROS)
+#set (CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH})
+SET (CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} CACHE STRING "path to qt5")
+
+message(STATUS "[Parent] current CMAKE_PREFIX_PATH is ${CMAKE_PREFIX_PATH}")
 
 
 option(CTK_BUILD_SHARED_LIBS "Build CTK libraries as shared module." ON)
@@ -73,6 +87,16 @@ endif()
 if(NOT CMAKE_CONFIGURATION_TYPES)
   mark_as_superbuild(VARS CMAKE_BUILD_TYPE ALL_PROJECTS)
 endif()
+
+mark_as_superbuild(
+  VARS
+    CMAKE_PREFIX_PATH:STRING
+    CMAKE_DEBUG_POSTFIX:STRING
+  ALL_PROJECTS
+  )
+
+
+
 
 #-----------------------------------------------------------------------------
 # Superbuild Option - Enabled by default
@@ -896,7 +920,7 @@ set(CTEST_PROJECT_SUBPROJECTS ${CTEST_PROJECT_SUBPROJECTS})
 
 # If the list of subproject is empty, let's at least build CTKCore
 list(LENGTH CTEST_PROJECT_SUBPROJECTS subproject_count)
-IF (subproject_count EQUAL 0)
+if(subproject_count EQUAL 0)
   set(CTEST_PROJECT_SUBPROJECTS CTKCore)
 endif()
 
@@ -1070,6 +1094,8 @@ set(CTK_CONFIG_H_INCLUDE_DIR ${CTK_BINARY_DIR})
 set(CMAKE_CXX_FLAGS ${CTK_CXX_FLAGS} CACHE STRING "CMake C Flags" FORCE)
 set(CMAKE_C_FLAGS ${CTK_C_FLAGS} CACHE STRING "CMake CXX Flags" FORCE)
 
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS_INIT} ${CTK_EXE_LINKER_FLAGS}" CACHE STRING "Flags used when linking executables" FORCE)
+
 #-----------------------------------------------------------------------------
 # Set the header template which defines custom export/import macros
 # for shared libraries
@@ -1098,9 +1124,6 @@ endforeach()
 add_subdirectory(Libs/CommandLineModules)
 
 #-----------------------------------------------------------------------------
-if(CTK_USE_QTTESTING)
-  add_subdirectory(Libs/QtTesting)
-endif()
 
 #-----------------------------------------------------------------------------
 # Add CTK plugin subdirectories

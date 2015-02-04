@@ -88,6 +88,12 @@ set(CMAKE_MODULE_PATH
   ${CMAKE_MODULE_PATH}
   )
 
+  
+#cmake prefix path 
+set(CMAKE_PREFIX_PATH @CMAKE_PREFIX_PATH@)
+  
+  
+  
 # Relative install paths
 set(CTK_INSTALL_BIN_DIR "@CTK_INSTALL_BIN_DIR@")
 set(CTK_INSTALL_INCLUDE_DIR "@CTK_INSTALL_INCLUDE_DIR@")
