@@ -25,7 +25,7 @@ endif()
 
 if(NOT DEFINED VTK_DIR AND NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
 
-  set(revision_tag d3b66526624ba8e55addcddb0ec28c40982473ac)
+  set(revision_tag a1e301c9a555ce211f1861c2dbf16a751c431075)
   if(${proj}_REVISION_TAG)
     set(revision_tag ${${proj}_REVISION_TAG})
   endif()
@@ -37,7 +37,7 @@ if(NOT DEFINED VTK_DIR AND NOT ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj})
     set(location_args GIT_REPOSITORY ${${proj}_GIT_REPOSITORY}
                       GIT_TAG ${revision_tag})
   else()
-    set(location_args GIT_REPOSITORY "${git_protocol}://vtk.org/VTK.git"
+    set(location_args GIT_REPOSITORY "${git_protocol}://github.com/hendradarwin/VTK.git"
                       GIT_TAG ${revision_tag})
   endif()
 
