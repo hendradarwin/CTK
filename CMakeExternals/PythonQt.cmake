@@ -63,7 +63,7 @@ if(NOT DEFINED PYTHONQT_INSTALL_DIR)
     message(FATAL_ERROR "error: Python is required to build ${PROJECT_NAME}")
   endif()
 
-  set(revision_tag e1f1c77d9675c3c5fb1cba19d2a32ace483eda2c)
+  set(revision_tag 6d88ce7972caed5a08522f402bfbcb1322293c7f)
   if(${proj}_REVISION_TAG)
     set(revision_tag ${${proj}_REVISION_TAG})
   endif()
@@ -75,7 +75,7 @@ if(NOT DEFINED PYTHONQT_INSTALL_DIR)
     set(location_args GIT_REPOSITORY ${${proj}_GIT_REPOSITORY}
                       GIT_TAG ${revision_tag})
   else()
-    set(location_args GIT_REPOSITORY "${git_protocol}://github.com/commontk/PythonQt.git"
+    set(location_args GIT_REPOSITORY "${git_protocol}://github.com/hendradarwin/PythonQt.git"
                       GIT_TAG ${revision_tag})
   endif()
 
