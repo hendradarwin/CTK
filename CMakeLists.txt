@@ -49,6 +49,9 @@ project(CTK)
 #
 set(CTK_LIBRARY_MODE "SHARED")
 
+add_definitions(/D_ALLOW_KEYWORD_MACROS)
+
+
 option(CTK_BUILD_SHARED_LIBS "Build CTK libraries as shared module." ON)
 mark_as_advanced(CTK_BUILD_SHARED_LIBS)
 mark_as_superbuild(CTK_BUILD_SHARED_LIBS)
