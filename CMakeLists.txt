@@ -509,14 +509,13 @@ ctk_lib_option(DICOM/Widgets
 ctk_lib_option(ImageProcessing/ITK/Core
                "Build the ITK Core library" OFF)
 
-if(CTK_QT_VERSION VERSION_LESS "5")
-ctk_lib_option(Scripting/Python/Core
-               "Build the Python Core library" OFF
-               CTK_ENABLE_Python_Wrapping)
-
-ctk_lib_option(Scripting/Python/Widgets
-               "Build the Python Widgets library" OFF)
-endif()
+#if(CTK_QT_VERSION VERSION_LESS "5")
+#ctk_lib_option(Scripting/Python/Core
+#               "Build the Python Core library" OFF
+#               CTK_ENABLE_Python_Wrapping)
+#ctk_lib_option(Scripting/Python/Widgets
+#               "Build the Python Widgets library" OFF)
+#endif()
 
 # VTK libraries have not yet been tested with Qt5
 if(CTK_QT_VERSION VERSION_LESS "5")
