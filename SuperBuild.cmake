@@ -34,6 +34,11 @@ endif()
 #-----------------------------------------------------------------------------
 set(proj CTK)
 
+
+#CTK_DEPENDENCIES
+message(STATUS "CTK dependency: ${CTK_DEPENDENCIES} ")
+
+
 ExternalProject_Add(${proj}
   ${${proj}_EP_ARGS}
   DOWNLOAD_COMMAND ""

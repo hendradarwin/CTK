@@ -208,10 +208,10 @@ macro(ctkMacroGetAllProjectTargetLibraries all_target_libraries varname)
     set(re_ctkplugin "^org_commontk_[a-zA-Z0-9_]+$")
     set(_tmp_list)
     list(APPEND _tmp_list ${all_target_libraries})
-    #message("calling ctkMacroListFilter with varname:${varname}")
+    message("calling ctkMacroListFilter with varname:${varname}")
     ctkMacroListFilter(_tmp_list re_ctklib re_ctkplugin OUTPUT_VARIABLE ${varname})
-    #message(STATUS "getallctklibs from ${all_target_libraries}")
-    #message(STATUS varname:${varname}:${${varname}})
+    message(STATUS "getallctklibs from ${all_target_libraries}")
+    message(STATUS varname:${varname}:${${varname}})
   endif()
 endmacro()
 
@@ -226,7 +226,7 @@ macro(ctkMacroGetAllNonProjectTargetLibraries all_target_libraries varname)
     list(REMOVE_ITEM _tmp_list ${all_project_libraries})
   endif()
   set(${varname} ${_tmp_list})
-  #message(varname:${varname}:${${varname}})
+  message(varname:${varname}:${${varname}})
 endmacro()
 
 #! \ingroup CMakeUtilities
@@ -239,4 +239,13 @@ macro(ctkMacroShouldAddExternalProject libraries_variable_name resultvar)
       set(${resultvar} TRUE)
     endif()
   endif()
+  
+  
+  message( "checking:   ${libraries_variable_name} " )
+  
+  #manual overide for PythonQT
+  if(${libraries_variable_name} STREQUAL "PYTHONQT_LIBRARIES")
+	set(${resultvar} TRUE)
+  endif()
+  
 endmacro()
