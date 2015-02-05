@@ -64,7 +64,7 @@ add_definitions(/D_ALLOW_KEYWORD_MACROS)
 SET (CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} CACHE STRING "path to qt5")
 
 message(STATUS "[Parent] current CMAKE_PREFIX_PATH is ${CMAKE_PREFIX_PATH}")
-
+message(STATUS "[Parent] current PYTHON_EXECUTABLE is ${PYTHON_EXECUTABLE}")
 
 option(CTK_BUILD_SHARED_LIBS "Build CTK libraries as shared module." ON)
 mark_as_advanced(CTK_BUILD_SHARED_LIBS)
