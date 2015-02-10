@@ -78,7 +78,7 @@ set(KIT_resources
 ctkFunctionGetTargetLibraries(KIT_target_libraries)
 
 if(CTK_QT_VERSION VERSION_GREATER "4")
-  list(APPEND KIT_target_libraries Qt5::XmlPatterns Qt5::Gui Qt5::Concurrent)
+  list(APPEND KIT_target_libraries Qt5::XmlPatterns Qt5::Gui Qt5::Concurrent Qt5::Widgets)
 else()
   set(QT_USE_QTXMLPATTERNS 1)
   include(${QT_USE_FILE})

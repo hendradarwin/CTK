@@ -51,6 +51,12 @@
 
 set(verbose 0)
 
+
+message(STATUS "python header at the beginning ${PYTHON_INCLUDE_DIRS} ")
+message(STATUS "python exec at the beginning ${PYTHON_EXECUTABLE} ")
+
+
+
 #! \ingroup CMakeUtilities
 macro(ctkMacroWrapPythonQt WRAPPING_NAMESPACE TARGET SRCS_LIST_NAME SOURCES IS_WRAP_FULL HAS_DECORATOR)
 
@@ -140,26 +146,59 @@ macro(ctkMacroWrapPythonQt WRAPPING_NAMESPACE TARGET SRCS_LIST_NAME SOURCES IS_W
     )
 
   set(extra_args)
-  if(verbose)
-    set(extra_args --extra-verbose)
-  endif()
+  #if(verbose)
+  set(extra_args --extra-verbose)
+  #endif()
 
   # Custom command allow to generate ${WRAPPING_NAMESPACE_UNDERSCORE}_${TARGET}_init.cpp and
   # associated wrappers ${WRAPPING_NAMESPACE_UNDERSCORE}_${TARGET}.cpp
   set(wrapper_init_cpp_filename ${wrap_int_dir}${WRAPPING_NAMESPACE_UNDERSCORE}_${TARGET}_init.cpp)
   set(wrapper_h_filename ${wrap_int_dir}${WRAPPING_NAMESPACE_UNDERSCORE}_${TARGET}.h)
+  
+  
+  # edit path to native windows, python failed when found / in path or filename
+  #file(TO_NATIVE_PATH ${wrapper_init_cpp_filename} ${wrapper_init_cpp_filename})
+  #file(TO_NATIVE_PATH ${SOURCES_TO_WRAP} ${SOURCES_TO_WRAP})
+  #file(TO_NATIVE_PATH ${wrapper_h_filename} ${wrapper_h_filename})
+  #file(TO_NATIVE_PATH ${CTK_CMAKE_DIR} ${CTK_CMAKE_DIR})
+  #file(TO_NATIVE_PATH ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR})
+  #file(TO_NATIVE_PATH ${wrap_int_dir} ${wrap_int_dir})
+  
+  
+  
+  set(pyexec ${PYTHON_EXECUTABLE})
+  
+  set(output_dir "${CMAKE_CURRENT_BINARY_DIR}/${wrap_int_dir}")
+  set(source_to_wrap_native)
+  
+  
+  # looping through SOURCES_TO_WRAP
+  foreach(src ${SOURCES_TO_WRAP})
+	file(TO_NATIVE_PATH ${src} src)
+	list(APPEND source_to_wrap_native ${src})
+  endforeach()
+  
+  
+  file(TO_NATIVE_PATH ${output_dir} output_dir)
+ 
+  
+  
+  
+  
+  
   add_custom_command(
     OUTPUT
       ${wrapper_init_cpp_filename}
       ${wrapper_h_filename}
     DEPENDS
-      ${SOURCES_TO_WRAP}
-      ${CTK_CMAKE_DIR}/ctkWrapPythonQt.py
-    COMMAND ${PYTHON_EXECUTABLE} ${CTK_CMAKE_DIR}/ctkWrapPythonQt.py
-      --target=${TARGET}
-      --namespace=${WRAPPING_NAMESPACE}
-      --output-dir=${CMAKE_CURRENT_BINARY_DIR}/${wrap_int_dir} ${extra_args}
-      ${SOURCES_TO_WRAP}
+      ${source_to_wrap_native}
+      ${CTK_CMAKE_DIR}\\ctkWrapPythonQt.py
+    COMMAND ${PYTHON_EXECUTABLE} ${CTK_CMAKE_DIR}/ctkWrapPythonQt.py 
+      --target=${TARGET} 
+      --namespace=${WRAPPING_NAMESPACE} 
+      --output-dir=${output_dir}  
+	  ${extra_args} 
+      ${source_to_wrap_native} 
     COMMENT "PythonQt Wrapping - Generating ${wrapper_init_cpp_filename}"
     VERBATIM
     )
@@ -194,5 +233,8 @@ macro(ctkMacroWrapPythonQt WRAPPING_NAMESPACE TARGET SRCS_LIST_NAME SOURCES IS_W
   endif()
   include_directories(${PYTHON_INCLUDE_DIRS} ${PYTHONQT_INCLUDE_DIR})
 
+  message(STATUS "python header at the end ${PYTHON_INCLUDE_DIRS} ")
+  
+  
 endmacro()
 
