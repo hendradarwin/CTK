@@ -463,7 +463,7 @@ macro(ExternalProject_Include_Dependencies project_name)
   foreach(param DEPENDS EP_ARGS)
     if(NOT _sb_${param}_VAR)
       set(_sb_${param}_VAR ${_sb_proj}_${param})
-      message("[${project_name}] Setting _sb_${param}_VAR with default value '${_sb_${param}_VAR}'")
+      #message("[${project_name}] Setting _sb_${param}_VAR with default value '${_sb_${param}_VAR}'")
     endif()
   endforeach()
 
@@ -488,7 +488,7 @@ macro(ExternalProject_Include_Dependencies project_name)
   # Keeping track of variable name independently of the recursion
   if(NOT DEFINED _sb_SB_VAR)
     set(_sb_SB_VAR ${_sb_SUPERBUILD_VAR})
-    message("[${project_name}] Setting _sb_SB_VAR with default value '${_sb_SB_VAR}'")
+    #message("[${project_name}] Setting _sb_SB_VAR with default value '${_sb_SB_VAR}'")
   endif()
 
   # Set local variables

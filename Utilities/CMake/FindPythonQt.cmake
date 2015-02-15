@@ -13,6 +13,10 @@ find_path(PYTHONQT_INSTALL_DIR include/PythonQt/PythonQt.h DOC "Directory where 
 find_path(PYTHONQT_INCLUDE_DIR PythonQt.h "${PYTHONQT_INSTALL_DIR}/include/PythonQt" DOC "Path to the PythonQt include directory")
 find_library(PYTHONQT_LIBRARY PythonQt PATHS "${PYTHONQT_INSTALL_DIR}/lib" DOC "The PythonQt library.")
 
+# apakah sudah ketemu dengan file.lib nya
+#message(STATUS "status of PYTHONQT_LIBRARY ${PYTHONQT_LIBRARY} ")
+
+
 mark_as_advanced(PYTHONQT_INSTALL_DIR)
 mark_as_advanced(PYTHONQT_INCLUDE_DIR)
 mark_as_advanced(PYTHONQT_LIBRARY)

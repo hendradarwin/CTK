@@ -74,7 +74,16 @@ macro(ctkMacroBuildLibWrapper)
   # Since the PythonQt decorator depends on PythonQt, Python and VTK, let's link against
   # these ones to avoid complaints of MSVC
   # Note: "LINK_DIRECTORIES" has to be invoked before "ADD_LIBRARY"
+  
+  
+  # di sini belum di temukan python qt library file .lib nya mas bro
+  
+  
+  find_package(PythonQt)
+  
   set(my_EXTRA_PYTHON_LIBRARIES ${PYTHON_LIBRARY} ${PYTHONQT_LIBRARIES})
+  
+  message(STATUS "sebelum bikin lib: ${my_EXTRA_PYTHON_LIBRARIES} ")
 
   # Does a header having the expected filename exists ?
   string(REGEX REPLACE "^CTK" "ctk" lib_name_lc_ctk ${lib_name})

@@ -156,6 +156,8 @@ ctkMacroBuildLib(
   LIBRARY_TYPE ${CTK_LIBRARY_MODE}
   )
 
+  
+message(STATUS "CTK_WRAP_PYTHONQT_LIGHT  is : ${CTK_WRAP_PYTHONQT_LIGHT} ")
 if(CTK_WRAP_PYTHONQT_LIGHT)
   ctkMacroBuildLibWrapper(
     TARGET ${PROJECT_NAME}

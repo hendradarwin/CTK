@@ -336,10 +336,15 @@ macro(ctkMacroBuildPlugin)
     ARCHIVE_OUTPUT_DIRECTORY ${plugin_ARCHIVE_output_dir}
     PREFIX "lib"
     )
+	
 
   if(NOT MY_TEST_PLUGIN)
     # Install rules
-    install(TARGETS ${lib_name} EXPORT CTKExports
+	
+	message(STATUS "Install target plugin : ${lib_name} EXPORT CTKExports")
+
+	
+    install(TARGETS ${lib_name}  EXPORT CTKExports 
       RUNTIME DESTINATION ${CTK_INSTALL_PLUGIN_DIR} COMPONENT RuntimePlugins
       LIBRARY DESTINATION ${CTK_INSTALL_PLUGIN_DIR} COMPONENT RuntimePlugins
       ARCHIVE DESTINATION ${CTK_INSTALL_PLUGIN_DIR} COMPONENT Development)

@@ -88,6 +88,9 @@ macro(ctkMacroBuildLib)
   link_directories(
     ${my_library_dirs}
     )
+	
+  #message(STATUS "current my library dirs: ${my_library_dirs}" )	
+	
 
   set(MY_LIBRARY_EXPORT_DIRECTIVE ${MY_EXPORT_DIRECTIVE})
   set(MY_EXPORT_HEADER_PREFIX ${MY_NAME})
@@ -177,6 +180,7 @@ macro(ctkMacroBuildLib)
 
   # Install rules
   if(MY_LIBRARY_TYPE STREQUAL "SHARED")
+  
     install(TARGETS ${lib_name} EXPORT CTKExports
       RUNTIME DESTINATION ${CTK_INSTALL_LIB_DIR} COMPONENT RuntimeLibraries
       LIBRARY DESTINATION ${CTK_INSTALL_LIB_DIR} COMPONENT RuntimeLibraries
@@ -191,6 +195,10 @@ macro(ctkMacroBuildLib)
     list(APPEND my_libs ssp) # add stack smash protection lib
   endif()
   target_link_libraries(${lib_name} ${my_libs})
+  
+  #message( STATUS "current lib_name ${lib_name} " )	
+  #message( STATUS "current my_libs ${my_libs} " )	
+  
 
   # Update CTK_BASE_LIBRARIES
   set(CTK_BASE_LIBRARIES ${my_libs} ${lib_name} CACHE INTERNAL "CTK base libraries" FORCE)

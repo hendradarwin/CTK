@@ -232,8 +232,9 @@ macro(ctkMacroWrapPythonQt WRAPPING_NAMESPACE TARGET SRCS_LIST_NAME SOURCES IS_W
     message(FATAL_ERROR "error: PythonQt package is required to build ${TARGET}PythonQt")
   endif()
   include_directories(${PYTHON_INCLUDE_DIRS} ${PYTHONQT_INCLUDE_DIR})
+  link_directories( ${PYTHONQT_LIBRARY} )
 
-  message(STATUS "python header at the end ${PYTHON_INCLUDE_DIRS} ")
+  #message(STATUS "python header at the end ${PYTHON_INCLUDE_DIRS} ")
   
   
 endmacro()

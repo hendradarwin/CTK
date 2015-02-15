@@ -13,16 +13,16 @@
 # Collect CTK library target dependencies
 #
 
-message(STATUS "CTK dependency at 1: ${CTK_DEPENDENCIES} ")
+#message(STATUS "CTK dependency at 1: ${CTK_DEPENDENCIES} ")
 
 ctkMacroCollectAllTargetLibraries("${CTK_LIBS}" "Libs" ALL_TARGET_LIBRARIES)
 ctkMacroCollectAllTargetLibraries("${CTK_PLUGINS}" "Plugins" ALL_TARGET_LIBRARIES)
 ctkMacroCollectAllTargetLibraries("${CTK_APPS}" "Applications" ALL_TARGET_LIBRARIES)
-message(STATUS ALL_TARGET_LIBRARIES:${ALL_TARGET_LIBRARIES})
+#message(STATUS ALL_TARGET_LIBRARIES:${ALL_TARGET_LIBRARIES})
 
-foreach(alldep ${ALL_TARGET_LIBRARIES})
-  message("ALL CTK DEPENDS  ${alldep}")
-endforeach()
+#foreach(alldep ${ALL_TARGET_LIBRARIES})
+#  message("ALL CTK DEPENDS  ${alldep}")
+#endforeach()
 
 
 
@@ -40,12 +40,12 @@ endforeach()
 ctkMacroGetAllNonProjectTargetLibraries("${ALL_TARGET_LIBRARIES}" NON_CTK_DEPENDENCIES)
 #message(NON_CTK_DEPENDENCIES:${NON_CTK_DEPENDENCIES})
 
-foreach(nondep ${NON_CTK_DEPENDENCIES})
-  message("NON CTK DEPENDS  ${nondep}")
-endforeach()
+#foreach(nondep ${NON_CTK_DEPENDENCIES})
+#  message("NON CTK DEPENDS  ${nondep}")
+#endforeach()
 
 
-message(STATUS "CTK dependency at 3: ${CTK_DEPENDENCIES} ")
+#message(STATUS "CTK dependency at 3: ${CTK_DEPENDENCIES} ")
 #-----------------------------------------------------------------------------
 # Enable and setup External project global properties
 #
@@ -129,12 +129,15 @@ macro(superbuild_is_external_project_includable possible_proj output_var)
   if(DEFINED ${possible_proj}_enabling_variable)
     ctkMacroShouldAddExternalProject(${${possible_proj}_enabling_variable} ${output_var})
 	
-	message("ctkMacroShouldAddExternalProject ?: ${possible_proj}  is includable :  ${${output_var}}")  
+	#message("is python : ${possible_proj} ")
+    # overwrite di sini
+	# PythonQt
 	
     if(NOT ${${output_var}})
-      if(${possible_proj} STREQUAL "VTK"
-         AND CTK_LIB_Scripting/Python/Core_PYTHONQT_USE_VTK)
+      if(${possible_proj} STREQUAL "VTK" AND CTK_LIB_Scripting/Python/Core_PYTHONQT_USE_VTK)
         set(${output_var} 1)
+      elseif(${possible_proj} STREQUAL "PythonQt" )
+        set(${output_var} 1)		
       else()
         unset(${${possible_proj}_enabling_variable}_INCLUDE_DIRS)
         unset(${${possible_proj}_enabling_variable}_LIBRARY_DIRS)
@@ -145,11 +148,11 @@ macro(superbuild_is_external_project_includable possible_proj output_var)
     set(${output_var} 1)
   endif()
   
-  message("superbuild_is_external_project_includable ?: ${possible_proj}  is includable :  ${${output_var}}")  
+  #message("superbuild_is_external_project_includable ?: ${possible_proj}  is includable :  ${${output_var}}")  
 endmacro()
 
 
-message(STATUS "CTK dependency at 4: ${CTK_DEPENDENCIES} ")
+#message(STATUS "CTK dependency at 4: ${CTK_DEPENDENCIES} ")
 set(proj CTK)
 ExternalProject_Include_Dependencies(CTK
   PROJECT_VAR proj
@@ -157,9 +160,9 @@ ExternalProject_Include_Dependencies(CTK
   USE_SYSTEM_VAR ${CMAKE_PROJECT_NAME}_USE_SYSTEM_${proj}
   )
   
-message(STATUS "CTK dependency at 5: ${CTK_DEPENDENCIES} ")  
+#message(STATUS "CTK dependency at 5: ${CTK_DEPENDENCIES} ")  
 
-message("Updated CTK_DEPENDENCIES:")
+#message("Updated CTK_DEPENDENCIES:")
 foreach(dep ${CTK_DEPENDENCIES})
-  message("  ${dep}")
+  #message("  ${dep}")
 endforeach()
