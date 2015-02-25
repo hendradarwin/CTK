@@ -43,8 +43,8 @@ class vtkCallbackCommand;
 /// though.
 class CTK_VISUALIZATION_VTK_CORE_EXPORT ctkVTKConnection : public QObject
 {
-Q_OBJECT
 
+Q_OBJECT
 public:
   typedef QObject Superclass;
   explicit ctkVTKConnection(QObject* parent);

@@ -510,20 +510,20 @@ ctk_lib_option(ImageProcessing/ITK/Core
                "Build the ITK Core library" OFF)
 
 #if(CTK_QT_VERSION VERSION_LESS "5")
-#ctk_lib_option(Scripting/Python/Core
-#               "Build the Python Core library" OFF
-#               CTK_ENABLE_Python_Wrapping)
-#ctk_lib_option(Scripting/Python/Widgets
-#               "Build the Python Widgets library" OFF)
+ctk_lib_option(Scripting/Python/Core
+               "Build the Python Core library" OFF
+               CTK_ENABLE_Python_Wrapping)
+ctk_lib_option(Scripting/Python/Widgets
+               "Build the Python Widgets library" OFF)
 #endif()
 
 # VTK libraries have not yet been tested with Qt5
 #if(CTK_QT_VERSION VERSION_LESS "5")
-#ctk_lib_option(Visualization/VTK/Core
-#               "Build the VTK Core library" OFF)
-#
-#ctk_lib_option(Visualization/VTK/Widgets
-#               "Build the VTK Widgets library" OFF)
+ctk_lib_option(Visualization/VTK/Core
+               "Build the VTK Core library" OFF)
+
+ctk_lib_option(Visualization/VTK/Widgets
+               "Build the VTK Widgets library" OFF)
 #endif()
 
 ctk_lib_option(CommandLineModules/Core
@@ -643,13 +643,13 @@ ctk_app_option(ctkDICOMObjectViewer
                "Build the DICOM example application" OFF
                CTK_ENABLE_DICOM AND CTK_BUILD_EXAMPLES)
 
-if(CTK_QT_VERSION VERSION_LESS "5")
+#if(CTK_QT_VERSION VERSION_LESS "5")
 ctk_app_option(ctkSimplePythonShell
                "Build the DICOM example application" OFF
                CTK_ENABLE_Python_Wrapping AND CTK_BUILD_EXAMPLES)
-endif()
+#endif()
 
-if(CTK_USE_QTTESTING AND CTK_QT_VERSION VERSION_LESS "5")
+if(CTK_USE_QTTESTING )
   ctk_app_option(ctkQtTesting
                 "Build the ctkQtTesting example application" OFF
                 CTK_BUILD_EXAMPLES)
