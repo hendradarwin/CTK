@@ -518,13 +518,13 @@ ctk_lib_option(ImageProcessing/ITK/Core
 #endif()
 
 # VTK libraries have not yet been tested with Qt5
-if(CTK_QT_VERSION VERSION_LESS "5")
-ctk_lib_option(Visualization/VTK/Core
-               "Build the VTK Core library" OFF)
-
-ctk_lib_option(Visualization/VTK/Widgets
-               "Build the VTK Widgets library" OFF)
-endif()
+#if(CTK_QT_VERSION VERSION_LESS "5")
+#ctk_lib_option(Visualization/VTK/Core
+#               "Build the VTK Core library" OFF)
+#
+#ctk_lib_option(Visualization/VTK/Widgets
+#               "Build the VTK Widgets library" OFF)
+#endif()
 
 ctk_lib_option(CommandLineModules/Core
                "Build the Command Line Module core library" OFF)
