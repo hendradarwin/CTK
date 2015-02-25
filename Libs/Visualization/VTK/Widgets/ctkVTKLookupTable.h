@@ -34,7 +34,7 @@ class ctkVTKLookupTablePrivate;
 ///
 /// Transfer function for a vtkColorTransferFunction. 
 /// The value is an RGB QColor (no alpha supported)
-class CTK_VISUALIZATION_VTK_CORE_EXPORT ctkVTKLookupTable: public ctkTransferFunction
+class __declspec(dllexport) ctkVTKLookupTable : public ctkTransferFunction
 {
   Q_OBJECT;
   QVTK_OBJECT;

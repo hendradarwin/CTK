@@ -35,7 +35,7 @@ class ctkVTKCompositeFunctionPrivate;
 ///
 /// Transfer function for a vtkPiecewiseFunction
 
-class CTK_VISUALIZATION_VTK_CORE_EXPORT ctkVTKCompositeFunction: public ctkTransferFunction
+class __declspec(dllexport) ctkVTKCompositeFunction : public ctkTransferFunction
 {
   Q_OBJECT;
   QVTK_OBJECT;

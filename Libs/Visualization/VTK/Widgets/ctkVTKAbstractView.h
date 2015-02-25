@@ -38,7 +38,7 @@ class vtkRenderWindowInteractor;
 class vtkRenderWindow;
 
 /// \ingroup Visualization_VTK_Widgets
-class CTK_VISUALIZATION_VTK_WIDGETS_EXPORT ctkVTKAbstractView : public QWidget
+class __declspec(dllexport) ctkVTKAbstractView : public QWidget
 {
   Q_OBJECT
   QVTK_OBJECT

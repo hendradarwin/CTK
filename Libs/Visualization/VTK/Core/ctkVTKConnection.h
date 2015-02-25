@@ -41,7 +41,7 @@ class vtkCallbackCommand;
 /// vtkObject*, void*, unsigned long, void*: sender, callData, eventId, clientData
 /// Of course the slot can contain less parameters, but always the same order
 /// though.
-class CTK_VISUALIZATION_VTK_CORE_EXPORT ctkVTKConnection : public QObject
+class __declspec(dllexport) ctkVTKConnection : public QObject
 {
 
 Q_OBJECT
