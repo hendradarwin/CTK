@@ -32,7 +32,7 @@
 class ctkVTKErrorLogMessageHandlerPrivate;
 
 /// \ingroup Visualization_VTK_Core
-class __declspec(dllexport) ctkVTKErrorLogMessageHandler :
+class CTK_VISUALIZATION_VTK_CORE_EXPORT ctkVTKErrorLogMessageHandler :
     public ctkErrorLogAbstractMessageHandler
 {
 public:

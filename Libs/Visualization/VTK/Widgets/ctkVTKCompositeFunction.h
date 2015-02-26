@@ -26,6 +26,7 @@
 #include "ctkPimpl.h"
 #include "ctkVisualizationVTKCoreExport.h"
 #include "ctkVTKObject.h"
+#include "ctkVisualizationVTKWidgetsExport.h"
 
 class vtkPiecewiseFunction;
 class vtkColorTransferFunction;
@@ -35,7 +36,7 @@ class ctkVTKCompositeFunctionPrivate;
 ///
 /// Transfer function for a vtkPiecewiseFunction
 
-class __declspec(dllexport) ctkVTKCompositeFunction : public ctkTransferFunction
+class CTK_VISUALIZATION_VTK_WIDGETS_EXPORT ctkVTKCompositeFunction : public ctkTransferFunction
 {
   Q_OBJECT;
   QVTK_OBJECT;

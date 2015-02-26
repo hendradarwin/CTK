@@ -77,7 +77,6 @@ ctkFunctionGetTargetLibraries(KIT_target_libraries)
 if(CTK_LIB_Scripting/Python/Core AND CTK_LIB_Scripting/Python/Core_PYTHONQT_USE_VTK)
   list(APPEND KIT_target_libraries
     CTKVisualizationVTKCore
-    vtkFiltering
     )
 endif()
 

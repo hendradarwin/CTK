@@ -27,6 +27,8 @@
 #include "ctkVisualizationVTKCoreExport.h"
 #include "ctkVTKObject.h"
 
+#include "ctkVisualizationVTKWidgetsExport.h"
+
 class vtkDataArray;
 class ctkVTKHistogramPrivate;
 
@@ -34,7 +36,7 @@ class ctkVTKHistogramPrivate;
 ///
 /// Transfer function for a vtkColorTransferFunction. 
 /// The value is an RGB QColor (no alpha supported)
-class __declspec(dllexport) ctkVTKHistogram : public ctkHistogram
+class CTK_VISUALIZATION_VTK_WIDGETS_EXPORT ctkVTKHistogram : public ctkHistogram
 {
   Q_OBJECT;
   QVTK_OBJECT;

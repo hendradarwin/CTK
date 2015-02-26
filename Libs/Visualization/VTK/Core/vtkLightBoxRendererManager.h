@@ -34,7 +34,7 @@ class vtkCornerAnnotation;
 class vtkAlgorithmOutput;
 
 /// \ingroup Visualization_VTK_Core
-class __declspec(dllexport) vtkLightBoxRendererManager : public vtkObject
+class CTK_VISUALIZATION_VTK_CORE_EXPORT vtkLightBoxRendererManager : public vtkObject
 {
   vtkTypeMacro(vtkLightBoxRendererManager,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);

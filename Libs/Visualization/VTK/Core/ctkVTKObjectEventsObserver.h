@@ -41,7 +41,7 @@ class vtkObject;
 /// \brief Connect vtkObject events with QObject slots.
 /// Helper class that provides utility methods for connecting vtkObjects with
 /// QObjects.
-class __declspec(dllexport) ctkVTKObjectEventsObserver : public QObject
+class CTK_VISUALIZATION_VTK_CORE_EXPORT ctkVTKObjectEventsObserver : public QObject
 {
 Q_OBJECT
   /// This property controls wether or not you can replace a
@@ -171,7 +171,7 @@ private:
 
 //-----------------------------------------------------------------------------
 /// \ingroup Visualization_VTK_Core
-class __declspec(dllexport) ctkVTKConnectionFactory
+class CTK_VISUALIZATION_VTK_CORE_EXPORT ctkVTKConnectionFactory
 {
 public:
   static ctkVTKConnectionFactory* instance();
