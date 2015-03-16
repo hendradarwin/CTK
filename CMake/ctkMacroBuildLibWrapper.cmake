@@ -83,7 +83,7 @@ macro(ctkMacroBuildLibWrapper)
   
   set(my_EXTRA_PYTHON_LIBRARIES ${PYTHON_LIBRARY} ${PYTHONQT_LIBRARIES})
   
-  message(STATUS "sebelum bikin lib: ${my_EXTRA_PYTHON_LIBRARIES} ")
+  #message(STATUS "sebelum bikin lib: ${my_EXTRA_PYTHON_LIBRARIES} ")
 
   # Does a header having the expected filename exists ?
   string(REGEX REPLACE "^CTK" "ctk" lib_name_lc_ctk ${lib_name})
