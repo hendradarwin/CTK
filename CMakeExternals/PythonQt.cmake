@@ -57,7 +57,9 @@ if(NOT DEFINED PYTHONQT_INSTALL_DIR)
     endforeach()
   endif()
 
+  
   # Python is required
+  # unset(PYTHON_LIBRARY)
   find_package(PythonLibs)
   if(NOT PYTHONLIBS_FOUND)
     message(FATAL_ERROR "error: Python is required to build ${PROJECT_NAME}")

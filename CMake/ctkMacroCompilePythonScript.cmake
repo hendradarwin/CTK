@@ -143,11 +143,15 @@ function(_ctk_add_compile_python_directories_target target)
       set(_compileall_code "${_compileall_code}\nctk_compile_file('${tgt}', force=1)")
     endforeach()
 
+	#unset(PYTHON_LIBRARY)
     find_package(PythonInterp REQUIRED)
     find_package(PythonLibs REQUIRED)
 
     # Extract python lib path
-    get_filename_component(PYTHON_LIBRARY_PATH ${PYTHON_LIBRARY} PATH)
+	message(STATUS "memang nya sebelum di set isi nya apa? : ${PYTHON_LIBRARY} ")
+    # get_filename_component(PYTHON_LIBRARY_PATH ${PYTHON_LIBRARY} PATH)
+	# ini maksudny mau minta lib nya python file dengan extensi .py atau .pyd... tapi wtf..
+	
 
     # Configure cmake script associated with the custom command
     # required to properly update the library path with PYTHON_LIBRARY_PATH
