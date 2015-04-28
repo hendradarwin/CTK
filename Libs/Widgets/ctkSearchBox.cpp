@@ -33,9 +33,9 @@
 // --------------------------------------------------
 class ctkSearchBoxPrivate
 {
-  Q_DECLARE_PUBLIC(ctkSearchBox);
-protected:
-  ctkSearchBox* const q_ptr;
+  Q_DECLARE_PUBLIC(ctkSearchBox)
+private:
+  ctkSearchBox* q_ptr;
 public:
   ctkSearchBoxPrivate(ctkSearchBox& object);
   void init();
@@ -58,10 +58,13 @@ public:
 
 // --------------------------------------------------
 ctkSearchBoxPrivate::ctkSearchBoxPrivate(ctkSearchBox &object)
-  : q_ptr(&object)
 {
-  this->clearIcon = QIcon(":Icons/clear.svg");
-  this->searchIcon = QIcon(":Icons/search.svg");
+    qDebug() << "ctkSearchBoxPrivate CONSTRUCTOR!";
+    q_ptr = &object;
+
+//  this->clearIcon = QIcon(":Icons/clear.svg");
+//  this->searchIcon = QIcon(":Icons/search.svg");
+
   this->showSearchIcon = false;
   this->alwaysShowClearIcon = false;
   this->hideClearIcon = true;
